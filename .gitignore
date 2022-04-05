@@ -1,0 +1,15 @@
+/out/
+/.idea/
+/.idea/codeStyles/
+/.idea/libraries/
+/.idea/$PROJECT_FILE$
+/.idea/.gitignore
+/.idea/checkstyle-idea.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/qaplug_profiles.xml
+/.idea/runConfigurations.xml
+/.idea/uiDesigner.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/java-fsd-training.iml
