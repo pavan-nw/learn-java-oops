@@ -1,14 +1,7 @@
-package com.fsd.training;
+package com.fsd.training.apr2022;
 
-import com.fsd.training.exception.RadiusValueOutOfBondException;
-import com.fsd.training.oops.BlueColoring;
-import com.fsd.training.oops.Circle;
-import com.fsd.training.oops.ColoredSquare;
-import com.fsd.training.oops.Draw;
-import com.fsd.training.oops.RedColoring;
-import com.fsd.training.oops.Shape;
-import com.fsd.training.oops.Square;
-import com.fsd.training.oops.YellowColoring;
+import com.fsd.training.apr2022.oops.ColoredSquare;
+import com.fsd.training.apr2022.oops.YellowColoring;
 
 public class AppRunner {
 

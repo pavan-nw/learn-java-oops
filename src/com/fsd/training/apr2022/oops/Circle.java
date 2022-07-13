@@ -1,6 +1,6 @@
-package com.fsd.training.oops;
+package com.fsd.training.apr2022.oops;
 
-import com.fsd.training.exception.RadiusValueOutOfBondException;
+import com.fsd.training.apr2022.exception.RadiusValueOutOfBondException;
 
 public class Circle extends Shape {
     private final double radius;

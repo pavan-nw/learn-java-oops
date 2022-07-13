@@ -1,11 +1,11 @@
-package com.fsd.training.oops;
+package com.fsd.training.apr2022.oops;
 
-public class RedColoring implements ColoringPattern {
+public class BlueColoring implements ColoringPattern {
 
-    private String color = "RED";
+    private String color = "BLUE";
     private String shade;
 
-    public RedColoring(String shade) {
+    public BlueColoring(String shade) {
         this.shade = shade;
     }
 

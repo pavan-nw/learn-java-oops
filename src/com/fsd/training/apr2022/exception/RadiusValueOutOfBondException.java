@@ -1,4 +1,4 @@
-package com.fsd.training.exception;
+package com.fsd.training.apr2022.exception;
 
 public class RadiusValueOutOfBondException extends Exception {
     private double causedRadius;

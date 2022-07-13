@@ -1,4 +1,4 @@
-package com.fsd.training.oops;
+package com.fsd.training.apr2022.oops;
 
 public class Square extends Shape {
     private double side;
