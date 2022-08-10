@@ -46,3 +46,59 @@ VALUES
 'CSE',
 'Bombay',
 400000);
+
+
+
+DROP TRIGGER ins_sum;
+
+DROP TABLE account;
+
+CREATE TABLE account (acct_num INT, amount DECIMAL(10,2));
+
+CREATE TRIGGER ins_sum BEFORE INSERT ON account
+FOR EACH ROW SET @sum = @sum + NEW.amount;
+
+SET @sum = 0;
+INSERT INTO account VALUES(135,200),(142,300),(98,500);
+SELECT @sum AS 'Total amount inserted';
+
+select * from account;
+
+delimiter //
+CREATE TRIGGER upd_check BEFORE UPDATE ON account
+       FOR EACH ROW
+       BEGIN
+           IF NEW.amount < 0 THEN
+               SET NEW.amount = 0;
+           ELSEIF NEW.amount > 100 THEN
+               SET NEW.amount = 100;
+           END IF;
+		END;
+        
+UPDATE `java-dev`.`account`
+SET
+`amount` = 121.45
+WHERE acct_num = 137;
+
+delimiter //
+CREATE PROCEDURE empcount (IN empcity CHAR(10), OUT employeecount INT)
+       BEGIN
+         SELECT COUNT(*) INTO employeecount FROM employee
+         WHERE city = empcity;
+       END;
+       
+CALL empcount('Pune', @employeecount);
+       
+select @employeecount;
+
+CREATE FUNCTION greetWith (greeting CHAR(20), name CHAR(20))
+RETURNS CHAR(50) DETERMINISTIC
+RETURN CONCAT(greeting, " ", name,' for completing database training!');
+
+SELECT greetWith('Wishes for', 'John'), greetWith('Congrats', 'Arun');
+
+CREATE FUNCTION areaOfCircle (radius DOUBLE)
+RETURNS DOUBLE DETERMINISTIC
+RETURN 3.142*radius*radius;
+
+select areaOfCircle(17) as area;
