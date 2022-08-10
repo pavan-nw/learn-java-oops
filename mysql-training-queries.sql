@@ -1,6 +1,38 @@
 SELECT * FROM employee;
 
+create table department (
+	dept_id int(4),
+	dept_name text(30),
+	dept_fund float(8,2),
+	head_of_dept int(4)
+);
+
 select * from department;
+
+select dept_id as DEPARTMENT_ID, dept_name NAME, dept_fund 'FUND' 
+from department
+where dept_fund between 100000 and 200000;
+
+update department set dept_name = 'ME' where dept_id = 103;
+
+delete from department where dept_id = 102;
+
+INSERT INTO `department` VALUES (101,'CSE',400000, 1);
+INSERT INTO `department` VALUES (102,'ECE',300000, 2);
+INSERT INTO `department` VALUES (103,'ME',100000, 3);
+INSERT INTO `department` VALUES (112,'PHYSICS',200000, 4);
+
+delete from department where dept_id = 113;
+
+alter table department add constraint dept_pk primary key(dept_id);
+
+alter table department add constraint dept_name_uniq unique (dept_name);
+
+alter table employee add constraint dept_foriegn_key foreign key(department) references department(dept_id);
+
+alter table employee drop constraint dept_foriegn_key;
+
+update employee set department=113 where id=101;
 
 select adddate(sysdate(), interval 2 YEAR) from dual;
 
@@ -27,8 +59,15 @@ CASE
 END as context_val
 FROM employee;
 
-
 select max(salary) maxSalary, min(salary) minSalary, avg(salary) avgSalary, sum(salary) sumSalary from employee; 
+
+select 12.656568, round(12.656568), round(12.656568, 5), truncate(12.656568, 5); 
+
+select 12.656568, floor(12.656568), ceil(12.656568), mod(12.656568, 5), abs(-12.656568); 
+
+select count(*) Total_Employees from employee;
+
+select rpad("1234567", 10, '*') modified_name from dual;
 
 select count(*) from employee;
 
@@ -46,8 +85,6 @@ VALUES
 'CSE',
 'Bombay',
 400000);
-
-
 
 DROP TRIGGER ins_sum;
 
