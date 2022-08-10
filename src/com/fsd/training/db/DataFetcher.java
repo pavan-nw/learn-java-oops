@@ -24,11 +24,11 @@ public class DataFetcher {
         Statement st = con.createStatement();
 
         // prepare SQL query
-        String query = "SELECT ID, NAME, CITY, SALARY FROM EMPLOYEE";
-        String query_dept = "select * from department";
+         String query = "SELECT ID, NAME, CITY, SALARY FROM EMPLOYEE ORDER BY SALARY ASC";
+//        String query_dept = "select * from department";
 
         // send and execute SQL query in Database software
-        ResultSet rs = st.executeQuery(query_dept);
+        ResultSet rs = st.executeQuery(query);
 
         // process the ResultSet object
         boolean flag = false;
@@ -37,7 +37,7 @@ public class DataFetcher {
             System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getInt(4));
         }
 
-        if (flag == true) {
+        if (flag) {
             System.out.println("\nRecords retrieved and displayed");
         } else {
             System.out.println("Record not found");
