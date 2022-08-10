@@ -1,0 +1,37 @@
+use library-app
+
+db.books.insertMany([
+   { "title": "Welcome to India",
+    "author": "mno",
+    "edition": 2,
+    "price": 856 },
+   { "title": "Effective Java 11",
+    "author": "abc",
+    "edition": 6,
+    "price": 1700 },
+   { "title": "Effective Kotlin",
+    "author": "abc",
+    "edition": 13,
+    "price": 2500}
+]);
+
+
+b.books.find();
+
+db.books.find({ author: { $in: [ "abc", "xyz" ] } });
+
+db.books.find({ author: { $in: [ "abc", "xyz" ] } }, {title: 1, author: 1, price: 1});
+
+db.books.find({ author: { $in: [ "abc", "xyz" ] } }, {title: 1, author: 1, price: 1}).count();
+
+db.books.find(
+  { author: { $in: [ "abc", "xyz" ] }, price: { $lt: 1000 } }, 
+  { title: 1, author: 1, price: 1 });
+
+
+  db.books.distinct("author");
+
+  db.books.updateMany(
+  {price : {$lt: 1000}},
+  {$set: { price: 800 },}
+  );
